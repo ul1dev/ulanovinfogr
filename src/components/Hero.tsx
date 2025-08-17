@@ -77,7 +77,7 @@ const Hero = () => {
             </div>
 
             {/* Прокрутка вниз индикатор */}
-            <div className="absolute bottom-8 left-2 right-0 flex justify-center animate-bounce">
+            <div className="absolute bottom-8 left-0 sm:left-2 right-0 flex justify-center animate-bounce">
                 <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
                     <div className="w-1 h-3 bg-muted-foreground/30 rounded-full mt-2 animate-pulse"></div>
                 </div>
