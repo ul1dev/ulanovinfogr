@@ -41,10 +41,12 @@ const Header = () => {
         <div className="container mx-auto max-w-site px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Логотип */}
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">Д</span>
-              </div>
+            <div className="flex items-center space-x-3">
+              <img
+                src="/lovable-uploads/b49e4a25-3745-4ef4-a699-f214c1757792.png"
+                alt="Дмитрий Уланов"
+                className="w-10 h-10 rounded-full object-cover"
+              />
               <span className="font-heading font-bold text-xl">Дмитрий Уланов</span>
             </div>
 

@@ -67,62 +67,30 @@ const Contacts = () => {
             </div>
           </div>
 
-          {/* Форма заявки */}
+          {/* Telegram блок */}
           <div className="animate-scale-in">
-            <div className="card-elegant">
-              <h3 className="text-2xl font-heading font-bold mb-6">Форма заявки</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Имя</label>
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Telegram @username</label>
-                  <input
-                    type="text"
-                    value={formData.telegram}
-                    onChange={(e) => setFormData({...formData, telegram: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Ссылка на карточку/товар</label>
-                  <input
-                    type="url"
-                    value={formData.productLink}
-                    onChange={(e) => setFormData({...formData, productLink: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Комментарий</label>
-                  <textarea
-                    rows={4}
-                    value={formData.comment}
-                    onChange={(e) => setFormData({...formData, comment: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="btn-hero w-full justify-center"
+            <div className="card-elegant text-center">
+              <div className="w-20 h-20 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center">
+                <MessageCircle className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="text-2xl font-heading font-bold mb-4">Связаться в Telegram</h3>
+              <p className="text-muted-foreground mb-8">
+                Самый быстрый способ обсудить ваш проект и получить консультацию
+              </p>
+              <div className="space-y-4">
+                <a
+                  href="https://t.me/ulanov_dsgn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-hero w-full text-center flex items-center justify-center"
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Отправить заявку
-                </button>
-              </form>
+                  <Send className="w-5 h-5 mr-2" />
+                  Написать в Telegram
+                </a>
+                <p className="text-sm text-muted-foreground">
+                  Отвечаю в течение 30 минут в рабочее время
+                </p>
+              </div>
             </div>
           </div>
         </div>

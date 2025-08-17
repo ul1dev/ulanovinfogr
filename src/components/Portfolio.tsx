@@ -4,49 +4,70 @@ import { ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
 const Portfolio = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-  // Плейсхолдеры для портфолио
+  // Портфолио работ
   const portfolioItems = [
     {
       id: 1,
-      title: "Карточка косметики для Wildberries",
-      description: "Увеличение CTR на 40% через яркие акценты",
-      image: "/portfolio/placeholder-1.jpg",
+      title: "Печенье сэндвич",
+      description: "Яркая упаковка с акцентом на вкус и текстуру",
+      image: "/lovable-uploads/8a420b52-0be9-42a6-af23-83ced2aa840f.png",
       category: "Wildberries"
     },
     {
       id: 2,
-      title: "Инфографика для товаров здоровья",
-      description: "Акцент на пользе и составе продукта",
-      image: "/portfolio/placeholder-2.jpg",
+      title: "Эмалированная кастрюля",
+      description: "Акцент на качестве и экологичности",
+      image: "/lovable-uploads/7739adf4-68d1-4094-9019-d7b1eb53a64e.png",
       category: "Ozon"
     },
     {
       id: 3,
-      title: "Дизайн для электроники",
-      description: "Минимализм и технологичность",
-      image: "/portfolio/placeholder-3.jpg",
+      title: "Профессиональный гайковерт",
+      description: "Техническая инфографика с характеристиками",
+      image: "/lovable-uploads/e2e1ba54-4e05-4b1b-a504-745f68305e27.png",
       category: "Wildberries"
     },
     {
       id: 4,
-      title: "Карточки детских товаров",
-      description: "Яркие цвета и дружелюбный дизайн",
-      image: "/portfolio/placeholder-4.jpg",
+      title: "Геймпад с виброоткликом",
+      description: "Современный дизайн для игровой периферии",
+      image: "/lovable-uploads/075d31ad-2045-41a0-ad03-8f63aef8dac1.png",
       category: "Ozon"
     },
     {
       id: 5,
-      title: "Спортивные товары",
-      description: "Динамика и энергия в каждом элементе",
-      image: "/portfolio/placeholder-5.jpg",
+      title: "Игровые наушники",
+      description: "Акцент на технических характеристиках",
+      image: "/lovable-uploads/81ef6c7f-38a8-451c-970a-a916f442fe9b.png",
       category: "Wildberries"
     },
     {
       id: 6,
-      title: "Товары для дома",
-      description: "Уют и комфорт в визуальном решении",
-      image: "/portfolio/placeholder-6.jpg",
+      title: "Крем для рук Bioderma",
+      description: "Медицинская косметика с акцентом на составе",
+      image: "/lovable-uploads/e9530610-3e6f-4e2c-a1d3-2dd70d08facd.png",
       category: "Ozon"
+    },
+    {
+      id: 7,
+      title: "Вязаная сумка",
+      description: "Стильный дизайн для модных аксессуаров",
+      image: "/lovable-uploads/17d5b3ca-78cd-495f-8f07-a1adb2da6541.png",
+      category: "Wildberries"
+    },
+    {
+      id: 8,
+      title: "Смесь семян для салатов",
+      description: "Эко-продукт с акцентом на натуральность",
+      image: "/lovable-uploads/c0464529-b18e-4a63-bea5-3ee310b1c3e4.png",
+      category: "Ozon"
+    },
+    {
+      id: 9,
+      title: "Кофе в зернах Egoiste",
+      description: "Премиум сегмент с акцентом на качестве",
+      image: "/lovable-uploads/0742ddd1-386d-461e-a82e-a19bd67bcc12.png",
+      category: "Wildberries"
     }
   ];
 
@@ -83,16 +104,14 @@ const Portfolio = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
               onClick={() => setSelectedImage(index)}
             >
-              {/* Плейсхолдер изображения */}
-              <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                <div className="text-center p-6">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-primary/20 rounded-2xl flex items-center justify-center">
-                    <ExternalLink className="w-8 h-8 text-primary" />
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    Загрузите изображение
-                  </p>
-                </div>
+              {/* Изображение портфолио */}
+              <div className="aspect-[4/5] relative overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
                 
                 {/* Overlay при hover */}
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -128,15 +147,6 @@ const Portfolio = () => {
           </a>
         </div>
 
-        {/* Инструкция для загрузки */}
-        <div className="mt-12 p-6 bg-muted/50 rounded-2xl border border-border">
-          <h4 className="font-semibold mb-2">📁 Инструкция по загрузке портфолио:</h4>
-          <p className="text-sm text-muted-foreground">
-            1. Загрузите изображения ваших работ в папку <code className="bg-background px-2 py-1 rounded">/public/portfolio</code><br/>
-            2. Обновите данные в файле <code className="bg-background px-2 py-1 rounded">portfolio.json</code><br/>
-            3. Изображения будут автоматически отображаться в галерее
-          </p>
-        </div>
       </div>
 
       {/* Лайтбокс */}
@@ -168,18 +178,23 @@ const Portfolio = () => {
 
             {/* Контент */}
             <div className="bg-white rounded-2xl overflow-hidden">
-              <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-24 h-24 mx-auto mb-6 bg-primary/20 rounded-3xl flex items-center justify-center">
-                    <ExternalLink className="w-12 h-12 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">
-                    {portfolioItems[selectedImage].title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {portfolioItems[selectedImage].description}
-                  </p>
+              <div className="aspect-[4/5] relative">
+                <img
+                  src={portfolioItems[selectedImage].image}
+                  alt={portfolioItems[selectedImage].title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
+                  {portfolioItems[selectedImage].category}
                 </div>
+                <h3 className="text-xl font-bold mb-2">
+                  {portfolioItems[selectedImage].title}
+                </h3>
+                <p className="text-muted-foreground">
+                  {portfolioItems[selectedImage].description}
+                </p>
               </div>
             </div>
           </div>
