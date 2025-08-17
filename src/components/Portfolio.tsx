@@ -151,8 +151,11 @@ const Portfolio = () => {
 
       {/* Лайтбокс */}
       {selectedImage !== null && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full">
+        <div 
+          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-hidden"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
             {/* Кнопка закрытия */}
             <button
               onClick={() => setSelectedImage(null)}
@@ -177,22 +180,22 @@ const Portfolio = () => {
             </button>
 
             {/* Контент */}
-            <div className="bg-white rounded-2xl overflow-hidden">
-              <div className="aspect-[4/5] relative">
+            <div className="bg-white rounded-2xl overflow-hidden max-h-[85vh]">
+              <div className="aspect-[4/3] relative">
                 <img
                   src={portfolioItems[selectedImage].image}
                   alt={portfolioItems[selectedImage].title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain bg-gray-50"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-4">
                 <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
                   {portfolioItems[selectedImage].category}
                 </div>
-                <h3 className="text-xl font-bold mb-2">
+                <h3 className="text-lg font-bold mb-2">
                   {portfolioItems[selectedImage].title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm">
                   {portfolioItems[selectedImage].description}
                 </p>
               </div>
