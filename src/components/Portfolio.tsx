@@ -4,70 +4,57 @@ import { ExternalLink, ChevronLeft, ChevronRight, X } from 'lucide-react';
 const Portfolio = () => {
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
-    // Портфолио работ
-    const portfolioItems = [
+    const portfolioItems: {
+        id: number;
+        title: string;
+        image: string;
+        category?: string;
+        description?: string;
+    }[] = [
         {
             id: 1,
-            title: 'Печенье сэндвич',
-            description: 'Яркая упаковка с акцентом на вкус и текстуру',
-            image: '/lovable-uploads/8a420b52-0be9-42a6-af23-83ced2aa840f.png',
-            category: 'Wildberries',
+            title: 'Бейсболка',
+            image: '/lovable-uploads/8a420b52-0be9-42a6-af23-83ced2aa840f.jpg',
         },
         {
             id: 2,
-            title: 'Эмалированная кастрюля',
-            description: 'Акцент на качестве и экологичности',
-            image: '/lovable-uploads/7739adf4-68d1-4094-9019-d7b1eb53a64e.png',
-            category: 'Ozon',
+            title: 'Смесь семян',
+            image: '/lovable-uploads/7739adf4-68d1-4094-9019-d7b1eb53a64e.jpg',
         },
         {
             id: 3,
-            title: 'Профессиональный гайковерт',
-            description: 'Техническая инфографика с характеристиками',
-            image: '/lovable-uploads/e2e1ba54-4e05-4b1b-a504-745f68305e27.png',
-            category: 'Wildberries',
+            title: 'Чипсы',
+            image: '/lovable-uploads/e2e1ba54-4e05-4b1b-a504-745f68305e27.jpg',
         },
         {
             id: 4,
-            title: 'Геймпад с виброоткликом',
-            description: 'Современный дизайн для игровой периферии',
-            image: '/lovable-uploads/075d31ad-2045-41a0-ad03-8f63aef8dac1.png',
-            category: 'Ozon',
+            title: 'Кофе зерновое',
+            image: '/lovable-uploads/075d31ad-2045-41a0-ad03-8f63aef8dac1.jpg',
         },
         {
             id: 5,
-            title: 'Игровые наушники',
-            description: 'Акцент на технических характеристиках',
-            image: '/lovable-uploads/81ef6c7f-38a8-451c-970a-a916f442fe9b.png',
-            category: 'Wildberries',
+            title: 'Креманка',
+            image: '/lovable-uploads/81ef6c7f-38a8-451c-970a-a916f442fe9b.jpg',
         },
         {
             id: 6,
-            title: 'Крем для рук Bioderma',
-            description: 'Медицинская косметика с акцентом на составе',
-            image: '/lovable-uploads/e9530610-3e6f-4e2c-a1d3-2dd70d08facd.png',
-            category: 'Ozon',
+            title: 'Микрофон петличный',
+            image: '/lovable-uploads/e9530610-3e6f-4e2c-a1d3-2dd70d08facd.jpg',
         },
         {
             id: 7,
-            title: 'Вязаная сумка',
-            description: 'Стильный дизайн для модных аксессуаров',
-            image: '/lovable-uploads/17d5b3ca-78cd-495f-8f07-a1adb2da6541.png',
-            category: 'Wildberries',
+            title: 'Катушка для рыбалки',
+            image: '/lovable-uploads/17d5b3ca-78cd-495f-8f07-a1adb2da6541.jpg',
         },
         {
             id: 8,
-            title: 'Смесь семян для салатов',
-            description: 'Эко-продукт с акцентом на натуральность',
-            image: '/lovable-uploads/c0464529-b18e-4a63-bea5-3ee310b1c3e4.png',
-            category: 'Ozon',
+            title: 'Вязаная сумка',
+            image: '/lovable-uploads/c0464529-b18e-4a63-bea5-3ee310b1c3e4.jpg',
         },
         {
             id: 9,
-            title: 'Кофе в зернах Egoiste',
-            description: 'Премиум сегмент с акцентом на качестве',
-            image: '/lovable-uploads/0742ddd1-386d-461e-a82e-a19bd67bcc12.png',
-            category: 'Wildberries',
+            title: 'Ламинатор',
+            image: '/lovable-uploads/0742ddd1-386d-461e-a82e-a19bd67bcc12.jpg',
         },
     ];
 
@@ -128,15 +115,21 @@ const Portfolio = () => {
                             </div>
 
                             <div className="p-6">
-                                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
-                                    {item.category}
-                                </div>
-                                <h3 className="font-heading font-semibold mb-2 group-hover:text-primary transition-colors">
+                                {item.category && (
+                                    <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
+                                        {item.category}
+                                    </div>
+                                )}
+
+                                <h3 className="font-heading font-semibold group-hover:text-primary transition-colors">
                                     {item.title}
                                 </h3>
-                                <p className="text-sm text-muted-foreground">
-                                    {item.description}
-                                </p>
+
+                                {item.description && (
+                                    <p className="text-sm text-muted-foreground mt-2">
+                                        {item.description}
+                                    </p>
+                                )}
                             </div>
                         </div>
                     ))}
@@ -199,15 +192,24 @@ const Portfolio = () => {
                                 />
                             </div>
                             <div className="p-4">
-                                <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
-                                    {portfolioItems[selectedImage].category}
-                                </div>
-                                <h3 className="text-lg font-bold mb-2">
+                                {portfolioItems[selectedImage].category && (
+                                    <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full mb-3">
+                                        {portfolioItems[selectedImage].category}
+                                    </div>
+                                )}
+
+                                <h3 className="text-lg font-bold">
                                     {portfolioItems[selectedImage].title}
                                 </h3>
-                                <p className="text-muted-foreground text-sm">
-                                    {portfolioItems[selectedImage].description}
-                                </p>
+
+                                {portfolioItems[selectedImage].description && (
+                                    <p className="text-muted-foreground text-sm mt-2">
+                                        {
+                                            portfolioItems[selectedImage]
+                                                .description
+                                        }
+                                    </p>
+                                )}
                             </div>
                         </div>
                     </div>
